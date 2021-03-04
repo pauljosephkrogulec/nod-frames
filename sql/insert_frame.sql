@@ -24,4 +24,6 @@ INSERT INTO Bloc_notes(id_bloc, id_user, contenu) VALUES
 (1, 1, "Ceci est un est !"),
 (2, 2, NULL);
 
+INSERT INTO Avoir(id_user,id_option) VALUES
+(2,1), (2,4), (2,6), (2,8), (2,9);
 

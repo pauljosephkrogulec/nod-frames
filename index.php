@@ -18,9 +18,10 @@
 <div class="users">
     <?php 
         $options = array();
-        $avoir = $bdd->query('SELECT * FROM Avoir WHERE id_user='.$_SESSION['id_user']);
-        while($row = $avoir->fetch()) var_dump($row);
+        $avoir = $bdd->query('SELECT o.* FROM Avoir INNER JOIN Options o USING(id_option) WHERE id_user='.$_SESSION['id_user']);
+        while($row = $avoir->fetch()) $options[$row['nom_app']] = $row['id_option'];
         
+
 
     ?>
 </div>
