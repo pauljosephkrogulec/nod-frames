@@ -2,10 +2,14 @@
     require_once('./config.php');
     $msg_error='';
     if(isOnline()) {
-        header('Location: ./');
+        setlocale (LC_TIME, 'fr_FR.utf8','fra'); 
+        $currentDateTime = date('d/m/Y H:i:s');
+        $log = $bdd->prepare('INSERT INTO Logs(id_user, action, date) VALUES (?,?,?)');
+        $log->execute(array($_SESSION['id_user'],'S\'est connecter', $currentDateTime));
+        header('Location: ./header.php');
     }
-    if(isset($_POST['mylogin']) && !empty($_POST['identifiant']) && !empty($_POST['mdp'])) {
-        $user = $bdd->prepare('SELECT * FROM Users WHERE username=? AND code_secret=? LIMIT 0,1');
+    if(isset($_POST['mylogin'])) {
+        $user = $bdd->prepare('SELECT * FROM Users WHERE username=? AND code_secret=?');
         $user->execute(array($_POST['identifiant'],$_POST['mdp']));
         $userVerif = $user->fetch();
         if($userVerif){
@@ -17,8 +21,14 @@
             $_SESSION['mode_enfant'] = $userVerif['mode_enfant'];
             $_SESSION['last_connexion'] = $userVerif['last_connexion'];
             $_SESSION['image_de_fond'] = $userVerif['image_de_fond'];
+
+            setlocale (LC_TIME, 'fr_FR.utf8','fra'); 
+            $currentDateTime = date('d/m/Y H:i:s');
+            $log = $bdd->prepare('INSERT INTO Logs(id_user, action, date) VALUES (?,?,?)');
+            $log->execute(array($_SESSION['id_user'],'S\'est connecter',$currentDateTime));
+            header('Location: ./header.php');
         } else {
-            $msg_error = 'Identifiant ou Mot de passe invalide !';
+            $msg_error = 'Identifiant ou Mot de passe invalide ! 2';
         }
     } else {
         $msg_error = 'Identifiant ou Mot de passe invalide !';

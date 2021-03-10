@@ -10,20 +10,16 @@ INSERT INTO Cadre(id_cadre, id_admin) VALUES
 (1, 1);
 
 INSERT INTO Options(id_option, nom_app) VALUES
-(1, 'Agenda'),
 (2, 'Alarmes'),
-(3, 'Appeler'),
 (4, 'Bloc-notes'),
 (5, 'Galerie'),
 (6, 'Historique'),
-(7, 'Messagerie'),
 (8, 'Température'),
 (9, 'Paramètres');
 
-INSERT INTO Bloc_notes(id_bloc, id_user, contenu) VALUES 
-(1, 1, "Ceci est un est !"),
-(2, 2, NULL);
+INSERT INTO Bloc_notes(id_user, contenu) VALUES 
+(1, "Ceci est un est !"),
+(2,"Course :");
 
 INSERT INTO Avoir(id_user,id_option) VALUES
-(2,1), (2,4), (2,6), (2,8), (2,9);
-
+(2,2), (2,4), (2,5), (2,6), (2,8), (2,9);
