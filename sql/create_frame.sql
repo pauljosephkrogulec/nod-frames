@@ -84,3 +84,8 @@ CREATE TABLE Avoir (
 );
 
 
+DROP TABLE IF EXISTS Photo;
+CREATE TABLE Photo (
+    id_image INTEGER PRIMARY KEY AUTOINCREMENT,
+    name_image varchar text NOT NULL
+);
