@@ -43,11 +43,13 @@
     <title>Authentification</title>
     <meta property="og:type" content="website">
     <meta name="author" content="Carpentier Quentin & Krogulec Paul-Joseph">
+    <link type="text/css" rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
     <div class="wrapper">
         <div class="content login">
-            <h2>Service d'Authentification</h2>
+            <h2>Connexion au NodeFrame</h2>
             <form method="post" action="">
                 <label for="identifiant">Identifiant</label>
                 <input type="text" name="identifiant" required>
