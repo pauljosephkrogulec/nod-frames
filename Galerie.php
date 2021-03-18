@@ -10,7 +10,7 @@
     }
 ?>
 
-<div style="padding-left: 20%;overflow:scroll;max-height:80%;">
+<div style="padding-left: 20%;">
     <div class="row">
         <?php 
             $i = 1;
